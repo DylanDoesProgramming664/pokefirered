@@ -7,6 +7,7 @@
 #define NUM_TEXT_PRINTERS 32
 
 #define TEXT_SPEED_INSTANT 0
+#define TEXT_SPEED_FF 0xFF
 
 // Given as a text speed when all the text should be
 // loaded at once but not copied to vram yet.

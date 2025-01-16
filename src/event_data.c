@@ -2,6 +2,7 @@
 #include "event_data.h"
 #include "item_menu.h"
 #include "quest_log.h"
+#include "wild_encounter.h"
 
 static bool8 IsFlagOrVarStoredInQuestLog(u16 idx, u8 a1);
 
@@ -35,6 +36,9 @@ EWRAM_DATA u16 gSpecialVar_PrevTextColor = 0;
 EWRAM_DATA u16 gSpecialVar_0x8014 = 0;
 EWRAM_DATA u8 sSpecialFlags[SPECIAL_FLAGS_SIZE] = {};
 
+#define NUM_DAILY_FLAGS   (DAILY_FLAGS_END - DAILY_FLAGS_START + 1)
+#define DAILY_FLAGS_SIZE    (NUM_DAILY_FLAGS / 8)
+
 COMMON_DATA u16 gLastQuestLogStoredFlagOrVarIdx = 0;
 
 extern u16 *const gSpecialVars[];
@@ -55,6 +59,16 @@ void ClearTempFieldEventData(void)
     FlagClear(FLAG_SYS_USE_STRENGTH);
     FlagClear(FLAG_SYS_SPECIAL_WILD_BATTLE);
     FlagClear(FLAG_SYS_INFORMED_OF_LOCAL_WIRELESS_PLAYER);
+}
+
+void ClearDailyFlags(void)
+{
+    memset(gSaveBlock1Ptr->flags + (DAILY_FLAGS_START / 8), 0, DAILY_FLAGS_SIZE);
+}
+
+// This funtion rotates the Altering Cave table based on the number of days since first day.
+void UpdateAlteringCave(void) {
+    VarSet(VAR_ALTERING_CAVE_WILD_SET, VAR_DAYS % NUM_ALTERING_CAVE_TABLES);
 }
 
 // Unused
@@ -159,7 +173,7 @@ void ClearMysteryGiftVars(void)
     VarSet(VAR_MYSTERY_GIFT_5,  0);
     VarSet(VAR_MYSTERY_GIFT_6,  0);
     VarSet(VAR_MYSTERY_GIFT_7,  0);
-    VarSet(VAR_ALTERING_CAVE_WILD_SET, 0);
+    // VarSet(VAR_ALTERING_CAVE_WILD_SET, 0);
 }
 
 void DisableResetRTC(void)

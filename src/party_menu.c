@@ -4270,10 +4270,10 @@ static void CB2_DoUseItemAnim(void)
 {
     if (CheckIfItemIsTMHMOrEvolutionStone(gSpecialVar_ItemId) == 2) // Evolution stone
     {
-        if (MonCanEvolve() == TRUE)
+        // if (MonCanEvolve() == TRUE)
             StartUseItemAnim_Normal(gPartyMenu.slotId, gSpecialVar_ItemId, CB2_UseEvolutionStone);
-        else
-            StartUseItemAnim_CantEvolve(gPartyMenu.slotId, gSpecialVar_ItemId, gPartyMenu.exitCallback);
+        // else
+        //     StartUseItemAnim_CantEvolve(gPartyMenu.slotId, gSpecialVar_ItemId, gPartyMenu.exitCallback);
     }
     else
         StartUseItemAnim_Normal(gPartyMenu.slotId, gSpecialVar_ItemId, CB2_UseItem);
@@ -5315,6 +5315,7 @@ static void CB2_UseEvolutionStone(void)
     RemoveBagItem(gSpecialVar_ItemId, 1);
 }
 
+// Prevent cross-generational evolutions like Bellossom until the National Pokedex is obtained
 static bool8 MonCanEvolve(void)
 {
     if (!IsNationalPokedexEnabled()

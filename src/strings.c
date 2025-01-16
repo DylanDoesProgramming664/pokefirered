@@ -30,7 +30,7 @@ const u8 gText_FailedUpdateSwapBackup[] = _("レポ-トの こうしんは\nし�
 const u8 gText_SaveFileCorrupted[] = _("The save file is corrupted.\pThe previous save file will be\nloaded.");
 const u8 gText_SaveFileHasBeenDeleted[] = _("The save file has been\ndeleted...");
 const u8 gText_1MSubCircuitBoardNotInstalled[] = _("The 1M sub-circuit board is\nnot installed.");
-const u8 gTextJP_InternalBatteryHasRunDry[] = _("でんちぎれの ために\nとけいが うごかなくなりました\pとけいに かんけいする できごとは おきませんが\nゲ-ムを つづけて あそぶことは できます");
+const u8 gText_BatteryRunDry[] = _("The internal battery has run dry.\nThe game can be played.\pHowever, clock-based events will\nno longer occur.");
 const u8 gText_PlayerUnused[] = _("しゅじんこう");
 const u8 gText_PokedexUnused[] = _("ポケモンずかん");
 const u8 gText_MainMenuTime[] = _("TIME");
@@ -123,7 +123,6 @@ const u8 gOtherText_Use[] = _("USE");
 const u8 gOtherText_Toss[] = _("TOSS");
 const u8 gOtherText_Register[] = _("REGISTER");
 const u8 gOtherText_Give[] = _("GIVE");
-const u8 gMenuText_Confirm[] = _("けってい");
 const u8 gOtherText_Walk[] = _("WALK");
 const u8 gFameCheckerText_Cancel[] = _("CANCEL");
 const u8 gOtherText_Exit[] = _("EXIT");
@@ -156,6 +155,16 @@ const u8 gText_SelectorArrow2[] = _("▶");
 const u8 gText_YesNo[] = _("YES\nNO");
 const u8 gText_GoBackToThePreviousMenu[] = _("Go back to the\nprevious menu.");
 const u8 gText_WhatWouldYouLikeToDo[] = _("What would you like to do?");
+
+const u8 gText_ResetRTCConfirmCancel[] = _("Reset RTC?\nA: Confirm, B: Cancel");
+const u8 gText_PresentTime[] = _("Present time in game");
+const u8 gText_PreviousTime[] = _("Previous time in game");
+const u8 gText_PleaseResetTime[] = _("Please reset the time.");
+const u8 gText_ClockHasBeenReset[] = _("The clock has been reset.\nData will be saved. Please wait.");
+const u8 gText_SaveCompleted[] = _("Save completed.");
+const u8 gText_NoSaveFileCantSetTime[] = _("There is no save file, so the time\ncan't be set.");
+const u8 gText_InGameClockUsable[] = _("The in-game clock adjustment system\nis now useable.");
+
 const u8 gText_MenuPokedex[] = _("POKéDEX");
 const u8 gText_MenuBag[] = _("BAG");
 const u8 gText_MenuPokenav[] = _("ポケナビ");
@@ -879,31 +888,12 @@ const u8 gText_BattleStyleSet[] = _("SET");
 const u8 gText_SoundMono[] = _("MONO");
 const u8 gText_SoundStereo[] = _("STEREO");
 const u8 gTextJP_Type[] = _("タイプ");
-const u8 gText_ButtonTypeHelp[] = _("HELP");
 const u8 gText_ButtonTypeLEqualsA[] = _("L=A");
 const u8 gText_ButtonTypeLR[] = _("LR");
 const u8 gText_FrameType[] = _("TYPE");
 const u8 gText_PickSwitchCancel[] = _("{DPAD_UPDOWN}PICK {DPAD_LEFTRIGHT}SWITCH {A_BUTTON}{B_BUTTON}CANCEL");
-const u8 gText_ResetRTCConfirmCancel[] = _("RTCを リセットします\nAで けってい Bで キャンセル");
-const u8 gText_PresentTime[] = _("げんざいの ゲ-ムない じかん");
-const u8 gText_PreviousTime[] = _("ぜんかいの ゲ-ムない じかん");
-const u8 gText_PleaseResetTime[] = _("じかんを さいせってい してください");
-const u8 gText_ClockHasBeenReset[] = _("じかんを さいせってい しました!\nレポ-トを かいています おまちください");
-const u8 gText_SaveCompleted[] = _("レポ-トを かきこみました!");
 const u8 gText_SaveFailed[] = _("レポ-トの かきこみに\nしっぱい しました‥");
-const u8 gText_NoSaveFileCantSetTime[] = _("レポ-トが ないので\nじかんの せっていは できません!");
-const u8 gText_InGameClockUsable[] = _("ゲ-ムない じかんの しゅうせい システムが\nつかえる ように なりました!");
 const u8 gText_SavingDontTurnOffThePower2[] = _("SAVING…\nDON'T TURN OFF THE POWER.");
-
-// Start menu option descriptions
-const u8 gStartMenuDesc_Pokedex[] = _("A device that records POKéMON secrets\nupon meeting or catching them.");
-const u8 gStartMenuDesc_Pokemon[] = _("Check and organize POKéMON that are\ntraveling with you in your party.");
-const u8 gStartMenuDesc_Bag[] = _("Equipped with pockets for storing items\nyou bought, received, or found.");
-const u8 gStartMenuDesc_Player[] = _("Check your money and other game data.");
-const u8 gStartMenuDesc_Save[] = _("Save your game with a complete record\nof your progress to take a break.");
-const u8 gStartMenuDesc_Option[] = _("Adjust various game settings such as text\nspeed, game rules, etc.");
-const u8 gStartMenuDesc_Exit[] = _("Close this MENU window.");
-const u8 gStartMenuDesc_Retire[] = _("Retire from the SAFARI GAME and return to\nthe registration counter.");
 
 #include "data/text/quest_log.h"
 
@@ -967,6 +957,9 @@ const u8 gText_Diploma_National[] = _("NATIONAL");
 const u8 gText_Diploma_Kanto[] = _("KANTO");
 const u8 gText_ClearAllSaveData[] = _("Clear all save data areas?");
 const u8 gText_ClearingData[] = _("Clearing data‥\nPlease wait.");
+const u8 gText_IsThisTheCorrectTime[] = _("Is this the correct time?");
+const u8 gText_Confirm3[] = _("CONFIRM");
+const u8 gText_Cancel4[] = _("CANCEL");
 const u8 gText_Player[] = _("PLAYER");
 const u8 gText_Time[] = _("TIME");
 const u8 gText_Colon[] = _(":");
@@ -1173,6 +1166,9 @@ const u8 gText_BronzeCard[] = _("BRONZE");
 const u8 gText_CopperCard[] = _("COPPER");
 const u8 gText_SilverCard[] = _("SILVER");
 const u8 gText_GoldCard[] = _("GOLD");
+const u8 gText_Day[] = _("DAY");
+const u8 gText_Colon3[] = _(":");
+const u8 gText_Confirm2[] = _("CONFIRM");
 const u8 gText_HelpSystemControls_A_Next[] = _("{A_BUTTON}NEXT");
 const u8 gText_HelpSystemControls_PickOkEnd[] = _("{DPAD_UPDOWN}PICK {A_BUTTON}OK {B_BUTTON}END");
 const u8 gText_HelpSystemControls_AorBtoCancel[] = _("{A_BUTTON}{B_BUTTON}CANCEL");
